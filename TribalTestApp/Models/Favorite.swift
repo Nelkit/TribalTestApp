@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import RealmSwift
+
+class Favorite: Object {
+    @objc dynamic var id: String = ""
+    @objc dynamic var date: Date = Date()
+    @objc dynamic var photo: Photo?
+
+    override class func primaryKey() -> String? {
+      return "id"
+    }
+}

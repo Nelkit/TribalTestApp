@@ -6,24 +6,18 @@
 //
 
 import Foundation
+import Alamofire
 
 class NetworkHelper: NSObject {
-
     
-    class func checkResponse(statusCode:HTTPResponseCode, responseDict:[String:Any], url: String) -> ApiResponse  {
-        switch statusCode {
-        case .Success:
-            let apiResponse = ApiResponse.init(status: true, data: responseDict, responseFor: .Default,message: responseDict["message"] as? String ?? "")
-            
-            
-            apiResponse.statusCode = HTTPResponseCode.Success
-            return  apiResponse
-        default:
-            let apiResponse = ApiResponse.init(status: false, data: responseDict, responseFor: .Default,message: responseDict["message"] as! String)
-            apiResponse.statusCode = statusCode
-            
-            
-            return apiResponse
-        }
+    /// Header de Autenticación
+    ///
+    /// - Returns: valores para autenticación
+    class func getAuthHeader() -> HTTPHeaders {
+        // Authentication
+        let auth: HTTPHeaders = ["Authorization" : "Client-ID \(Constants.unplashClientId)" ]
+        
+        return auth
     }
+
 }

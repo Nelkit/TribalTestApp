@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol UserProfileView {
+    func retrievePhotos(photos: [Photo])
+}

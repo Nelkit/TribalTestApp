@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol HomeView {
+    func retrievePhotos(photos: [Photo])
+    func retrieveSearch(photos: [Photo])
+}
